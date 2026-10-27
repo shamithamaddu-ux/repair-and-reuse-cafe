@@ -1,0 +1,1510 @@
+/* ==========================================================================
+   REPAIR & REUSE CAFÉ — Bespoke Editorial Stylesheet
+   Aesthetic: Independent Sustainable Lifestyle Brand & Modern Workshop Journal
+   Palette: Warm Ivory, Deep Forest Green, Burnt Terracotta, Muted Mustard, Soft White
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Brand Palette */
+  --ivory: #F5EDE1;
+  --ivory-deep: #EDE3D4;
+  --ivory-subtle: #FAF6EF;
+  --forest: #344536;
+  --forest-dark: #222E24;
+  --forest-light: #4A614D;
+  --terracotta: #B85C45;
+  --terracotta-hover: #9E4934;
+  --terracotta-soft: rgba(184, 92, 69, 0.12);
+  --mustard: #D7B878;
+  --mustard-dark: #B99955;
+  --mustard-soft: rgba(215, 184, 120, 0.2);
+  --soft-white: #FFFCF7;
+  --charcoal: #292B26;
+  --charcoal-muted: #565A52;
+  --charcoal-faded: #848A7D;
+
+  /* Editorial Borders & Lines */
+  --border-rule: 1px solid rgba(52, 69, 54, 0.16);
+  --border-rule-strong: 1px solid rgba(52, 69, 54, 0.4);
+  --border-terracotta: 1px solid rgba(184, 92, 69, 0.3);
+  --border-mustard: 1px solid rgba(215, 184, 120, 0.6);
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Subtle Shadows & Elevation */
+  --shadow-editorial: 0 4px 20px rgba(41, 43, 38, 0.05);
+  --shadow-lift: 0 16px 36px rgba(41, 43, 38, 0.09);
+  --shadow-inset: inset 0 1px 3px rgba(0,0,0,0.04);
+
+  /* Transitions */
+  --trans-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Archival grid background texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(52, 69, 54, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--trans-fast);
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--forest);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mono-tag::before {
+  content: '№';
+  color: var(--mustard-dark);
+  font-weight: 400;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.container-narrow {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Editorial Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--trans-smooth);
+  text-align: center;
+}
+
+.btn-terracotta {
+  background-color: var(--terracotta);
+  color: var(--soft-white);
+  border-color: var(--terracotta);
+  box-shadow: 0 4px 14px rgba(184, 92, 69, 0.22);
+}
+
+.btn-terracotta:hover {
+  background-color: var(--terracotta-hover);
+  border-color: var(--terracotta-hover);
+  color: var(--soft-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(184, 92, 69, 0.32);
+}
+
+.btn-forest {
+  background-color: var(--forest);
+  color: var(--ivory);
+  border-color: var(--forest);
+}
+
+.btn-forest:hover {
+  background-color: var(--forest-dark);
+  color: var(--soft-white);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--forest);
+  border-color: var(--forest);
+}
+
+.btn-outline:hover {
+  background-color: var(--forest);
+  color: var(--ivory);
+}
+
+/* ==========================================================================
+   Header & Minimal Navigation Bar
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(245, 237, 225, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--border-rule);
+  z-index: 1000;
+  transition: all var(--trans-smooth);
+}
+
+.site-header.scrolled {
+  background-color: rgba(245, 237, 225, 0.98);
+  box-shadow: var(--shadow-editorial);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-stamp {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--forest);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--forest);
+  background-color: var(--soft-white);
+  transition: transform var(--trans-smooth);
+}
+
+.brand:hover .brand-stamp {
+  transform: rotate(20deg);
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-top: 3px;
+  font-weight: 700;
+}
+
+/* Nav links - minimal & clean */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--forest);
+  letter-spacing: 0.04em;
+  position: relative;
+  padding: 6px 0;
+  transition: color var(--trans-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--terracotta);
+  transition: width var(--trans-fast);
+}
+
+.nav-link:hover {
+  color: var(--terracotta);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta-btn {
+  padding: 10px 22px;
+  font-size: 0.85rem;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--forest);
+  border-radius: 4px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--forest);
+}
+
+/* ==========================================================================
+   Section 1: Hero Section (Editorial Typographic Workshop)
+   ========================================================================== */
+.hero {
+  padding: 95px 0 80px;
+  border-bottom: var(--border-rule);
+  position: relative;
+}
+
+.hero-meta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  margin-bottom: 34px;
+  border-bottom: var(--border-rule);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--charcoal-muted);
+  text-transform: uppercase;
+}
+
+.hero-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border: 1px solid var(--mustard);
+  background-color: var(--soft-white);
+  border-radius: 30px;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-heading {
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--forest);
+  margin-bottom: 28px;
+}
+
+.hero-heading em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--terracotta);
+}
+
+.hero-tagline-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--forest);
+  margin-bottom: 22px;
+  line-height: 1.3;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Workshop Seal Card on Right */
+.hero-manifesto-card {
+  background-color: var(--soft-white);
+  border: 1px solid rgba(52, 69, 54, 0.2);
+  border-radius: 4px;
+  padding: 40px 36px;
+  position: relative;
+  box-shadow: var(--shadow-editorial);
+}
+
+.hero-manifesto-card::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px dashed rgba(52, 69, 54, 0.15);
+  pointer-events: none;
+}
+
+.manifesto-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.manifesto-symbol {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--mustard);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--terracotta);
+  background-color: var(--ivory-subtle);
+}
+
+.manifesto-number {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--mustard-dark);
+  letter-spacing: 0.1em;
+}
+
+.manifesto-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: var(--forest);
+}
+
+.manifesto-body {
+  font-size: 0.96rem;
+  color: var(--charcoal-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.manifesto-specs {
+  border-top: var(--border-rule);
+  padding-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: var(--charcoal-faded);
+  letter-spacing: 0.1em;
+}
+
+.spec-val {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+/* ==========================================================================
+   Section 2: Why Repair and Reuse?
+   ========================================================================== */
+.section {
+  padding: 90px 0;
+  border-bottom: var(--border-rule);
+}
+
+.section-head-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: flex-end;
+  margin-bottom: 55px;
+}
+
+.section-title-serif {
+  font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.08;
+}
+
+.section-intro-text {
+  font-size: 1.1rem;
+  color: var(--charcoal-muted);
+  line-height: 1.7;
+}
+
+.why-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.why-pillar-card {
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  padding: 38px 30px 34px;
+  border-radius: 4px;
+  transition: all var(--trans-smooth);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.why-pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--terracotta);
+  box-shadow: var(--shadow-lift);
+}
+
+.pillar-top-index {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.index-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+
+.pillar-icon-wire {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-rule-strong);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: var(--forest);
+  background-color: var(--ivory);
+}
+
+.why-pillar-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: var(--forest);
+}
+
+.why-pillar-desc {
+  font-size: 0.98rem;
+  color: var(--charcoal-muted);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   Section 3: What We Do (Asymmetric Split & Manifest)
+   ========================================================================== */
+.what-we-do-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-editorial);
+}
+
+.what-we-do-art-col {
+  background-color: var(--forest);
+  color: var(--ivory);
+  padding: 55px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.art-corner-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--mustard);
+  text-transform: uppercase;
+}
+
+.art-large-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-style: italic;
+  line-height: 1.25;
+  color: var(--ivory);
+  margin: 40px 0;
+}
+
+.art-badge-strap {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--mustard);
+  border-top: 1px solid rgba(215, 184, 120, 0.4);
+  padding-top: 16px;
+  text-transform: uppercase;
+}
+
+.what-we-do-content-col {
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content-heading-serif {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+
+.content-lead-para {
+  font-size: 1.15rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.workshop-commitments {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: var(--border-rule);
+  padding-top: 24px;
+}
+
+.commit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--charcoal-muted);
+}
+
+.commit-item svg {
+  color: var(--terracotta);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   Section 4, 5, 6: Repair, Reuse & Upcycling (The Three Pillars)
+   ========================================================================== */
+.pillars-tri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.pillar-full-block {
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  padding: 40px 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--trans-smooth);
+  position: relative;
+}
+
+.pillar-full-block:hover {
+  transform: translateY(-4px);
+  border-color: var(--forest);
+  box-shadow: var(--shadow-lift);
+}
+
+.pillar-header-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.pillar-block-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 16px;
+}
+
+.pillar-block-lead {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--terracotta);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.pillar-block-text {
+  font-size: 0.95rem;
+  color: var(--charcoal-muted);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.pillar-vector-frame {
+  margin-top: auto;
+  border-top: 1px dashed rgba(52, 69, 54, 0.18);
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pillar-vector-frame svg {
+  color: var(--forest);
+  opacity: 0.85;
+}
+
+.pillar-vector-caption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--charcoal-faded);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   Section 7: Our Services (6 Categories with Line Icons)
+   ========================================================================== */
+.services-catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-item-tile {
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  padding: 34px 28px;
+  border-radius: 4px;
+  transition: all var(--trans-smooth);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item-tile:hover {
+  transform: translateY(-4px);
+  border-color: var(--terracotta);
+  box-shadow: var(--shadow-editorial);
+}
+
+.service-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.service-line-icon-box {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(52, 69, 54, 0.2);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: var(--forest);
+  background-color: var(--ivory);
+  transition: all var(--trans-fast);
+}
+
+.service-item-tile:hover .service-line-icon-box {
+  background-color: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--soft-white);
+}
+
+.service-num-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--charcoal-faded);
+  letter-spacing: 0.1em;
+}
+
+.service-item-title {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+
+.service-item-desc {
+  font-size: 0.92rem;
+  color: var(--charcoal-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-book-hint {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-top: 1px dashed rgba(52, 69, 54, 0.12);
+  padding-top: 12px;
+}
+
+.service-item-tile:hover .service-book-hint {
+  color: var(--forest);
+}
+
+/* ==========================================================================
+   Section 8: How It Works (Numbered Timeline & Editorial Process)
+   ========================================================================== */
+.editorial-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.editorial-process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  border-top: 1px dashed rgba(52, 69, 54, 0.25);
+  z-index: 1;
+}
+
+.timeline-step-node {
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  padding: 30px 24px;
+  border-radius: 4px;
+  position: relative;
+  z-index: 2;
+  transition: all var(--trans-smooth);
+}
+
+.timeline-step-node:hover {
+  transform: translateY(-4px);
+  border-color: var(--mustard);
+  box-shadow: var(--shadow-editorial);
+}
+
+.step-marker-disc {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--forest);
+  border-radius: 50%;
+  background-color: var(--ivory);
+  color: var(--forest);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  transition: all var(--trans-fast);
+}
+
+.timeline-step-node:hover .step-marker-disc {
+  background-color: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--soft-white);
+}
+
+.step-heading-serif {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 12px;
+}
+
+.step-summary-text {
+  font-size: 0.92rem;
+  color: var(--charcoal-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Section 9: Book a Repair (Editorial Ticket & Working Intake)
+   ========================================================================== */
+.booking-editorial-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 50px;
+  background-color: var(--soft-white);
+  border: var(--border-rule);
+  border-radius: 4px;
+  padding: 55px 48px;
+  box-shadow: var(--shadow-editorial);
+}
+
+.booking-intel-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.booking-title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+
+.booking-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--terracotta);
+  margin-bottom: 20px;
+}
+
+.booking-lead-para {
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.workshop-notices-box {
+  background-color: var(--ivory);
+  border: 1px dashed rgba(52, 69, 54, 0.25);
+  border-radius: 4px;
+  padding: 22px;
+  margin-top: auto;
+}
+
+.workshop-notices-title {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.workshop-notices-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--charcoal-muted);
+}
+
+/* Booking Form Elements */
+.booking-form-side {
+  border-left: var(--border-rule);
+  padding-left: 50px;
+}
+
+.form-group-editorial {
+  margin-bottom: 22px;
+}
+
+.form-label-editorial {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--forest);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-input-editorial,
+.form-select-editorial,
+.form-textarea-editorial {
+  width: 100%;
+  padding: 13px 16px;
+  background-color: var(--ivory-subtle);
+  border: 1px solid rgba(52, 69, 54, 0.22);
+  border-radius: 3px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--charcoal);
+  transition: all var(--trans-fast);
+}
+
+.form-input-editorial:focus,
+.form-select-editorial:focus,
+.form-textarea-editorial:focus {
+  outline: none;
+  background-color: var(--soft-white);
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 3px var(--terracotta-soft);
+}
+
+.form-input-editorial.has-error,
+.form-select-editorial.has-error,
+.form-textarea-editorial.has-error {
+  border-color: #B83B3B;
+  background-color: #FFF6F6;
+}
+
+.input-error-tip {
+  display: none;
+  font-size: 0.8rem;
+  color: #B83B3B;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.input-error-tip.show {
+  display: block;
+}
+
+.form-textarea-editorial {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.demo-disclaimer-card {
+  background-color: var(--ivory);
+  border: 1px solid rgba(215, 184, 120, 0.4);
+  padding: 14px 16px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  color: var(--charcoal-muted);
+  line-height: 1.5;
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.demo-disclaimer-card svg {
+  color: var(--mustard-dark);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.btn-submit-booking {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Section 10: Why Reuse Matters
+   ========================================================================== */
+.reuse-matters-banner {
+  background-color: var(--forest);
+  color: var(--ivory);
+  border-radius: 4px;
+  padding: 70px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reuse-matters-banner::before {
+  content: 'REUSE';
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-family: var(--font-serif);
+  font-size: 16rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.reuse-banner-tag {
+  color: var(--mustard);
+}
+
+.reuse-banner-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 14px;
+}
+
+.reuse-banner-lead {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  color: var(--mustard);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.reuse-banner-text {
+  font-size: 1.15rem;
+  color: rgba(245, 237, 225, 0.9);
+  line-height: 1.75;
+  max-width: 820px;
+  margin-bottom: 35px;
+}
+
+.reuse-tri-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  border-top: 1px solid rgba(245, 237, 225, 0.18);
+  padding-top: 30px;
+}
+
+.reuse-metric-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-strong-num {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--mustard);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.metric-caption-text {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 237, 225, 0.7);
+}
+
+/* ==========================================================================
+   Section 11: Footer (Art-Directed Journal Style)
+   ========================================================================== */
+.site-footer {
+  background-color: var(--forest-dark);
+  color: var(--ivory);
+  padding: 85px 0 35px;
+  border-top: 2px solid var(--terracotta);
+}
+
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.footer-hero-brand {
+  padding-right: 30px;
+}
+
+.footer-headline-serif {
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 16px;
+  line-height: 1.12;
+}
+
+.footer-description {
+  font-size: 1rem;
+  color: rgba(245, 237, 225, 0.8);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+.footer-huge-mark {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--mustard);
+  line-height: 1.1;
+}
+
+.footer-col-heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mustard);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-link {
+  font-size: 0.92rem;
+  color: rgba(245, 237, 225, 0.8);
+  transition: color var(--trans-fast);
+}
+
+.footer-nav-link:hover {
+  color: var(--mustard);
+  padding-left: 4px;
+}
+
+.footer-data-text {
+  font-size: 0.92rem;
+  color: rgba(245, 237, 225, 0.8);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.placeholder-pill-note {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--mustard);
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.social-links-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.social-wire-link {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(245, 237, 225, 0.25);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: var(--ivory);
+  font-size: 0.88rem;
+  transition: all var(--trans-fast);
+}
+
+.social-wire-link:hover {
+  border-color: var(--terracotta);
+  background-color: var(--terracotta);
+  color: var(--soft-white);
+}
+
+.footer-fine-print-bar {
+  border-top: 1px solid rgba(245, 237, 225, 0.12);
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: rgba(245, 237, 225, 0.6);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   Modal Ticket / Confirmation
+   ========================================================================== */
+.modal-overlay-editorial {
+  position: fixed;
+  inset: 0;
+  background: rgba(34, 46, 36, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--trans-smooth);
+}
+
+.modal-overlay-editorial.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-ticket-card {
+  background-color: var(--soft-white);
+  border: 2px solid var(--forest);
+  border-radius: 4px;
+  max-width: 520px;
+  width: 100%;
+  padding: 40px 36px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  transform: translateY(20px) scale(0.96);
+  transition: all var(--trans-smooth);
+}
+
+.modal-overlay-editorial.active .modal-ticket-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-trigger {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-rule-strong);
+  background: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--forest);
+}
+
+.ticket-header-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(52, 69, 54, 0.3);
+  padding-bottom: 14px;
+  margin-bottom: 22px;
+}
+
+.ticket-mark-ref {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--terracotta);
+}
+
+.ticket-main-title {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+
+.ticket-sub-lead {
+  font-size: 0.95rem;
+  color: var(--charcoal-muted);
+  margin-bottom: 22px;
+}
+
+.ticket-data-ledger {
+  background-color: var(--ivory);
+  border: 1px solid var(--border-rule);
+  padding: 16px;
+  margin-bottom: 22px;
+}
+
+.ledger-entry-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.ledger-entry-row:last-child {
+  margin-bottom: 0;
+}
+
+.ledger-key {
+  color: var(--charcoal-faded);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.ledger-val {
+  font-weight: 600;
+  color: var(--forest);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 980px) {
+  .hero-layout,
+  .section-head-editorial,
+  .what-we-do-wrap,
+  .booking-editorial-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .booking-form-side {
+    border-left: none;
+    border-top: var(--border-rule);
+    padding-left: 0;
+    padding-top: 36px;
+  }
+
+  .why-editorial-grid,
+  .pillars-tri-grid,
+  .services-catalog {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .editorial-process-timeline {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .editorial-process-timeline::before {
+    display: none;
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav-menu, .header-cta-btn {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .site-header.mobile-open .nav-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    background-color: var(--ivory);
+    padding: 24px 28px;
+    border-bottom: var(--border-rule);
+    gap: 18px;
+    box-shadow: var(--shadow-editorial);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 0 50px;
+  }
+
+  .section {
+    padding: 65px 0;
+  }
+
+  .editorial-process-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .reuse-tri-metrics {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-editorial-layout {
+    padding: 30px 20px;
+  }
+
+  .reuse-matters-banner {
+    padding: 40px 24px;
+  }
+}
